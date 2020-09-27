@@ -9,17 +9,14 @@ bool HasRustyAxe = false;
 
 void introduction();
 void beginning();
-void FirstFloorMainEntrance();
-void FifthFloor();
 void OrcsRoom();
 void SecondFloor();
+void Victory();
 
 int main()
 {
     std::cout << "\n";
-    /*introduction();*/
-    /*beginning();*/
-    OrcsRoom();
+    introduction();
 }
 
 void introduction() {
@@ -103,10 +100,11 @@ void beginning() {
             system("cls");
             std::cout << "You aggressively walk a good distance away from the guard before turning around, eyes focused on the stationary man. With a mighty bowel-shaking bellow you start charging towards him, flailing your arms with a crazed look in your eyes. He reacts with nonchalance, even as you draw ever closer. Saliva flows from your mouth like a rabid dog, your hair stands up, your nails grow sharper and your teeth become fangs. Your raw rage and fericous charging is transforming you into the very image of a furious beast!\n";
             std::cout << "\"Ah hell, I ain't dealing with this crap\" the guard groans, as he calmly walks away from the door.\n";
-            std::cout << "Thus you end up slamming straight into the door, knocking it off its hinges. You lay on top of the knocked down door for a little while before sitting up, your previous beastial rage replaced with a big ol boo-boo on your face.\n";
+            std::cout << "Thus you end up slamming straight into the door, knocking it off its hinges. You lay on top of the knocked down door for a little while before sitting up, your previous beastial rage replaced with a big ol boo-boo on your face. You notice a small pebble landing besides you. Followed by another. And another. As well as many cracks along the walls. It seems like knocking down the door had some rather nasty consequences for the tower's structural integrity. \"What shoddy craftsmanship\", you think as the tower collapses on top of you.\n";
+            std::cout << "YOU DIED\n";
+            HasRustyAxe = false;
             system("pause");
-            FirstFloorMainEntrance();
-            break;
+            beginning();
         }
         case 3: {
             choice = 0;
@@ -118,9 +116,11 @@ void beginning() {
                 std::cin >> choice;
                 switch (choice) {
                 case 1: {
-                    std::cout << "You climb into the catapult's bucket, curling up into a ball before giving the lever a little kick. And so you're launched through the air, a gust of wind blowing you straight through the fifth floor window!\n";
+                    std::cout << "You climb into the catapult's bucket, curling up into a ball before giving the lever a little kick. And so you're launched through the air, a gust of wind blowing you straight into the tower wall, splattering you like a fly against a windshield.\n";
+                    std::cout << "YOU DIED\n";
+                    HasRustyAxe = false;
                     system("pause");
-                    FifthFloor();
+                    beginning();
                 }
                 case 2: {
                     std::cout << "Using all your mighty might, you carry a big rock to the catapult and load it into the bucket. You pull the lever, launching the boulder towards the tower... and missing completely, the rock making a splash as it lands in the water far away. The guard seems unimpressed. But before you can think to actually move the catapult to face the tower, a large shadow appears in the ocean. The waves part to reveal a giant sea serpent, with a very notciably boulder-sized bump on its head. Seeing you besides the catapult, it lunges forth. As you're consumed, you realize that sea serpents have a very poor dental plan.\n";
@@ -166,7 +166,7 @@ void beginning() {
         }
         case 6: {
             skipselection = 0;
-            MadeAChoice2 = 0;
+            MadeAChoice2 = false;
             std::cout << "Where do you want to go?\n";
             std::cout << "1. Meeting the Questioners. | 2. Cancel.\n";
             do {
@@ -188,80 +188,6 @@ void beginning() {
         }
         default: {
             break;
-        }
-        }
-    } while (MadeAChoice == false);
-}
-
-void FirstFloorMainEntrance() {
-    MadeAChoice = false;
-    system("cls");
-    do {
-        choice = 0;
-        std::cin >> choice;
-        switch (choice) {
-        case 4: {
-            skipselection = 0;
-            MadeAChoice2 = 0;
-            std::cout << "Where do you want to go?\n";
-            std::cout << "1. Meeting the Questioners. | 2. Outside the tower. | 3. Cancel.\n";
-            do {
-                std::cin >> skipselection;
-                switch (skipselection) {
-                case 1: {
-                    introduction();
-                }
-                case 2: {
-                    beginning();
-                }
-                case 3: {
-
-                }
-                default: {
-                    break;
-                }
-                }
-            } while (MadeAChoice2 == false);
-        default: {
-            break;
-        }
-        }
-        }
-    } while (MadeAChoice == false);
-}
-
-void FifthFloor() {
-    MadeAChoice = false;
-    system("cls");
-    do {
-        choice = 0;
-        std::cin >> choice;
-        switch (choice) {
-        case 4: {
-            skipselection = 0;
-            MadeAChoice2 = 0;
-            std::cout << "Where do you want to go?\n";
-            std::cout << "1. Meeting the Questioners. | 2. Outside the tower. | 3. Cancel.\n";
-            do {
-                std::cin >> skipselection;
-                switch (skipselection) {
-                case 1: {
-                    introduction();
-                }
-                case 2: {
-                    beginning();
-                }
-                case 3: {
-
-                }
-                default: {
-                    break;
-                }
-                }
-            } while (MadeAChoice2 == false);
-        default: {
-            break;
-        }
         }
         }
     } while (MadeAChoice == false);
@@ -297,7 +223,7 @@ void OrcsRoom() {
         }
         case 4: {
             skipselection = 0;
-            MadeAChoice2 = 0;
+            MadeAChoice2 = false;
             std::cout << "Where do you want to go?\n";
             std::cout << "1. Meeting the Questioners. | 2. Outside the tower | 3. Cancel.\n";
             do {
@@ -330,16 +256,72 @@ void OrcsRoom() {
 void SecondFloor() {
     MadeAChoice = false;
     system("cls");
-    std::cout << "After recovering from the uppercut, you get back up on your feet to look around your current surroundings. \n";
+    std::cout << "After recovering from the uppercut, you get back up on your feet to look around your current surroundings. You are in a round room with stone walls, a wodden floor and no doors or windows. Besides you is a hole in the floor leading back down to the angry orc. The room is illuminated by a strange glowing orb floating in the middle of the room. Besides the orb you can see an unopened chest and a ladder leading straight into the roof.\n";
+    std::cout << "How will you proceed?\n";
+    std::cout << "1. Touch the orb. | 2. Open the chest. | 3. Climb the ladder. | 4. Jump back down the hole. | 5. Revert to an earlier point.\n";
     do {
         choice = 0;
         std::cin >> choice;
         switch (choice) {
+        case 1: {
+            std::cout << "As you poke the mysterious orb you feel a strange energy wash over you, coating you in magic that makes your skin tingle. You feel yourself being transported upwards, before disappearing in a blink. You then reappear above the tower. A bit too far above the tower, in fact. As in, above the atmosphere. Remember, it's not the fall that kills you; it's the landing.\n";
+            std::cout << "YOU DIED\n";
+            system("pause");
+            SecondFloor();
+        }
+        case 2: {
+            std::cout << "You kneel down in front of the chest and try to pry it open, when suddenly it swings open to reveal several rows of sharp teeth! The mimic is about to lunge forth to devour you, when...\n";
+            std::cout << "\"You know... I'm just not in the mood for flesh\" it sighs. \"It's always the same thing, wait in some random room until a loot-hungry douchebag comes by and eat 'em, repeat ad nauseum. Honestly think I'm gonna vomit if I take one more bite. You know, I'm gonna go get a salad. I'll give ya whatever weapon you want.\"\n";
+            MadeAChoice2 = false;
+            std::cout << "1. Sword. | 2. Shield. | 3. Gold.\n";
+            do {
+                choice = 0;
+                std::cin >> choice;
+                switch (choice) {
+                case 1: {
+                    std::cout << "\"A sword? Ok, here ya go.\"\n";
+                    std::cout << "The mimic spits out a sword with such tremendous force that it embeds itself in your forehead.\n";
+                    std::cout << "\"...oops.\"\n";
+                    std::cout << "YOU DIED\n";
+                    system("pause");
+                    SecondFloor();
+                }
+                case 2: {
+                    std::cout << "\"One shield coming right up!\"\n";
+                    std::cout << "The mimic coughs up a big shield, which you try to catch. Unfortunately you fumble with it, staggering backwards as you try to get it under control. And as you walk backwards you fall down the hole leading back down to the orc.\n";
+                    std::cout << "YOU DIED\n";
+                    system("pause");
+                    SecondFloor();
+                }
+                case 3: {
+                    std::cout << "\"Have some gold then.\"\n";
+                    std::cout << "A flood of gold bursts from the mimic's mouth, filling your pockets with valuables! And filling the room. And the room below. Oh god there is so much gold. You're drowining in it! Help!\n";
+                    std::cout << "YOU DIED\n";
+                    system("pause");
+                    SecondFloor();
+                }
+                default: {
+                    break;
+                }
+                }
+            } while (MadeAChoice2 == false);
+        }
+        case 3: {
+            std::cout << "You start climbing up the ladder, expecting to bonk your head against the roof. But instead you climb straight through it, and continue climbing past the third floor as well. You keep going upwards, passing through each floor by phasing through them. All the traps, all the guards are easily bypassed. Eventually, you reach the top floor. And as soon as you do, you find the world swirling around you once more...\n";
+            system("pause");
+            Victory();
+        }
         case 4: {
+            std::cout << "You jump back down to the orc... and are immediately torn to shreds. Brillitant tactical maneuver.\n";
+            std::cout << "YOU DIED\n";
+            system("pause");
+            SecondFloor();
+        }
+        case 5: {
             skipselection = 0;
-            MadeAChoice2 = 0;
+            MadeAChoice2 = false;
             std::cout << "Where do you want to go?\n";
-            std::cout << "1. Meeting the Questioners. | 2. Outside the tower. | 3. Cancel.\n";
+            std::cout << "1. Meeting the Questioners. | 2. Outside the tower. | 3. The Orc's room. | 4. Cancel.\n";
             do {
                 std::cin >> skipselection;
                 switch (skipselection) {
@@ -350,7 +332,10 @@ void SecondFloor() {
                     beginning();
                 }
                 case 3: {
-
+                    OrcsRoom();
+                }
+                case 4: {
+                    SecondFloor();
                 }
                 default: {
                     break;
@@ -363,4 +348,19 @@ void SecondFloor() {
         }
         }
     } while (MadeAChoice == false);
+}
+
+void Victory() {
+    system("cls");
+    std::cout << "Once more you appear in the void before the five silhouettes.\n";
+    std::cout << "\"Ah, you made it!\"\n";
+    std::cout << "\"Surprising.\"\n";
+    std::cout << "\"Well well, a promise is a promise. We shall grant you anything you desire.\"\n";
+    std::cout << "\"Provided, of course, your request can pass through the deadliest trial of all.\"\n";
+    std::cout << "Suddenly, all the silhouettes pull various forms.\n";
+    std::cout << "\"BUREAUCRACY\" they all yell in chorus.\n";
+    std::cout << "\n";
+    std::cout << "\n";
+    std::cout << "Yeah, I didn't know how to end this. Sorry.\n";
+
 }
